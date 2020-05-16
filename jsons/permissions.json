@@ -1,0 +1,36 @@
+{   
+
+    "> PUT ALL ROLE IDS OF PEOPLE YOU WANT TO GIVE ACCESS TO THE BOT AS A WHOLE, PLEASE NOTE: ":
+    "THIS DOES *NOT* GUARANTEE ACCESS TO THE COMMAND, EVERYTHING ELSE IN THIS FILE ACTS AS AN OVERRIDE TO THIS.",
+    "> IF THIS IS LEFT BLANK, NO ONE CAN ACCESS *ANY* BOT COMMANDS...":
+    "so make sure 2 add chur roles :D",
+
+    "moderator_role_ids": [709598174314233888, 709598174314233887, 709598174314233886, 709598174280417319, 709598174280417318],
+
+    "> If role ID is in key then users do NOT have permission to use this command. <":
+    "(I.e. if a permission is clear that means everyone who can use these commands has access).",
+    "> If a command is NOT in this list at all, then that means that":
+    "Anyone in the server (including members) can use the command.",
+
+    "change_cooldown": [709598174314233886, 709598174280417319, 709598174280417318],
+    "update_prefix": [709598174314233886, 709598174280417319, 709598174280417318],
+    "kennel": [709598174280417319, 709598174280417318],
+    "unkennel": [709598174280417319, 709598174280417318],
+    "updateprefix": [709598174314233886, 709598174280417319, 709598174280417318],
+    "log": [709598174314233886, 709598174280417319, 709598174280417318],
+    "reminders": [709598174314233886, 709598174280417319, 709598174280417318],
+    "channelscrape": [709598174314233886, 709598174280417319, 709598174280417318],
+    "role": [709598174280417319, 709598174280417318],
+    "ban": [709598174280417319, 709598174280417318],
+    "unban": [709598174314233887, 709598174314233886, 709598174280417319, 709598174280417318],
+    "ping": [],
+    "mute": [],
+    "unmute": [],
+    "notify": [],
+
+    "> Any role_ids put in the 'warn' key list apply to *all* warn subcommands, due to the fact that":
+    "the check is only done once, on the parent command. (I.e. $warn add, $warn edit,)",
+
+    "warn": [709598174280417318]
+    
+}
