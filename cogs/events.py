@@ -106,10 +106,10 @@ class Events(commands.Cog, ModUtils):
 
         await cog.log_entry(
             member,
-            title='Member Joined',
-            description=f"{member} ({member.mention}) has joined the guild.\n"
-            f"Account Created: **{acc_created}**\n"
-            f"**{guild}** now has **{guild.member_count}** users!\n",
+            title='User Joined',
+            description=f"{member} {member.mention}\n"
+            f"Account Created: **{acc_created}**\n",
+            color=discord.Colour.green(),
             entry_type=JoinLeave,
             set_thumbnail={"url": member.avatar_url_as(static_format='png')}
         )
@@ -120,9 +120,9 @@ class Events(commands.Cog, ModUtils):
         cog = self.get_mod()
         await cog.log_entry(
             member,
-            title='Member Left',
-            description=f"**{member}** ({member.mention}) has left the guild.\n"
-                        f"**{guild}** now has **{guild.member_count}** users.\n",
+            title='User Left',
+            description=f"**{member}** ({member.mention}) has left the guild.\n",
+            color=discord.Colour.red(),
             entry_type=JoinLeave,
             set_thumbnail={"url": member.avatar_url_as(static_format='png')}
         )

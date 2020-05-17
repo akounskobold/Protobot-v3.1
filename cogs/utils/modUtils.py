@@ -176,12 +176,14 @@ class ModUtils:
                         guild=None,
                         title=None,
                         description=None,
+                        color=None,
                         entry_type: LoggerEntry.check,
                         **kwargs):
         """ Adds an entry to ProtoBot logs """
         if guild is None:
             guild = ctx.guild
-        color = guild.me.color
+        if not color:
+            color = guild.me.color
         embed = discord.Embed(
             title=title,
             description=description,

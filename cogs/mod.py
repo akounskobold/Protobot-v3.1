@@ -520,6 +520,7 @@ class Moderator(commands.Cog, ModUtils):
                 await ctx.guild.unban(banned_user)
                 await ctx.send(f"{banned_user.mention} unbanned!")
 
+# below command broke the help embed so it is commented out until it can be addressed
     #@commands.command(description="Run SQL Queries.")
     #@commands.has_permissions(administrator=True)
     #async def run_sql(self, ctx, *, query):

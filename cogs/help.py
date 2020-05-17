@@ -33,7 +33,7 @@ class Help(commands.Cog):
             )
             embed.set_author(name=author.display_name, icon_url=author.avatar_url)
             final_cmds = {}
-            # loop is broken and stops at the first moderation command in the mod cog
+            # loop is working as intended
             for (cog) in bot.cogs: # for each cog/module in the cogs folder the loop with iterate over it
                 print(cog)
                 final_cmds[str(cog)] = [] # initialize an array to store the commands the user can use
