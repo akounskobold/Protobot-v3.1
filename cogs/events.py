@@ -89,7 +89,6 @@ class Events(commands.Cog, ModUtils):
                             value='This was just the first one in the attachments list.'
                         )
                 embed.set_footer(text=f"Message ID: {msg_id}")
-                await msg.add_reaction('✅')
                 log_channel = channel.guild.get_channel(self.msg_flag_channel)
                 await log_channel.send(embed=embed)
 
@@ -98,21 +97,40 @@ class Events(commands.Cog, ModUtils):
         guild = member.guild
         cog = self.get_mod()
         diff = datetime.datetime.utcnow() - member.created_at
+        print
+        if diff.total_seconds() < 86400:
+            acc_created = '{:%b %d, %Y at %I:%M:%S %p} (UTC-0)\n`[Less than 24 hours old]`'.format(member.created_at)
+            await cog.log_entry(
+                member,
+                title='User Joined',
+                description=f"{member} {member.mention}\n"
+                f"Account Created: {acc_created}\n",
+                color=discord.Colour.green(),
+                entry_type=JoinLeave,
+                set_thumbnail={"url": member.avatar_url_as(static_format='png')}
+            )
 
-        if diff.total_seconds() < 604800:
-            acc_created = '{:%b %d, %Y at %I:%M:%S %p} (UTC-0)\n`[Less than one week old]`'.format(member.created_at)
         else:
-            acc_created = '{:%b %d, %Y at %I:%M:%S %p} (UTC-0)'.format(member.created_at)
+            await cog.log_entry(
+                member,
+                title='User Joined',
+                description=f"{member} {member.mention}\n",
+                color=discord.Colour.green(),
+                entry_type=JoinLeave,
+                set_thumbnail={"url": member.avatar_url_as(static_format='png')}
+            )
 
-        await cog.log_entry(
-            member,
-            title='User Joined',
-            description=f"{member} {member.mention}\n"
-            f"Account Created: **{acc_created}**\n",
-            color=discord.Colour.green(),
-            entry_type=JoinLeave,
-            set_thumbnail={"url": member.avatar_url_as(static_format='png')}
-        )
+#            acc_created = '{:%b %d, %Y at %I:%M:%S %p} (UTC-0)'.format(member.created_at)
+
+#        await cog.log_entry(
+#            member,
+#            title='User Joined',
+#            description=f"{member} {member.mention}\n"
+#            f"Account Created: **{acc_created}**\n",
+#            color=discord.Colour.green(),
+#            entry_type=JoinLeave,
+#            set_thumbnail={"url": member.avatar_url_as(static_format='png')}
+#        )
 
     @commands.Cog.listener()
     async def on_member_remove(self, member):
@@ -121,7 +139,7 @@ class Events(commands.Cog, ModUtils):
         await cog.log_entry(
             member,
             title='User Left',
-            description=f"**{member}** ({member.mention}) has left the guild.\n",
+            description=f"{member} {member.mention}\n",
             color=discord.Colour.red(),
             entry_type=JoinLeave,
             set_thumbnail={"url": member.avatar_url_as(static_format='png')}

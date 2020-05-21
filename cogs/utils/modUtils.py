@@ -190,10 +190,10 @@ class ModUtils:
             color=color,
             timestamp=self.now,
         )
-        if entry_type:
-            embed.set_author(
-                name=f"New {entry_type()} Event Occurred:"
-            )
+#        if entry_type:
+#            embed.set_author(
+#                name=f"New {entry_type()} Event Occurred:"
+#            )
         for k, v in kwargs.items():
             # equivalent to "embed.set_{k}(v[key]=v[value])"
             getattr(embed, k)(**v)  # for example "embed.set_description(url=<url>)"
